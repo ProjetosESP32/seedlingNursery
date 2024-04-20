@@ -1,8 +1,8 @@
-import rootUri from './rootUri';
+import { API_URL } from '../env';
 
 //returns a page with 7 specie objects
 export const getSpeciesList = async (page) => {
-  const speciesPromise = await fetch(rootUri + '/specie/page/' + (page - 1), {
+  const speciesPromise = await fetch(API_URL + '/specie/page/' + (page - 1), {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -17,7 +17,7 @@ export const getSpeciesList = async (page) => {
 
 //saves specie object to database
 export const saveSpecie = async (specie) => {
-  const response = await fetch(rootUri + '/specie', {
+  const response = await fetch(API_URL + '/specie', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -33,7 +33,7 @@ export const saveSpecie = async (specie) => {
 
 //get specie object by id
 export const getSpecie = async (id) => {
-  const speciesPromise = await fetch(rootUri + '/specie/' + id, {
+  const speciesPromise = await fetch(API_URL + '/specie/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -47,7 +47,7 @@ export const getSpecie = async (id) => {
 };
 
 export const getSpecieImage = async (id) => {
-  const imagePromise = await fetch(rootUri + '/specie-images/' + id, {
+  const imagePromise = await fetch(API_URL + '/specie-images/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -61,7 +61,7 @@ export const getSpecieImage = async (id) => {
 };
 
 export const getAllSpecies = async () => {
-  const speciesPromise = await fetch(rootUri + '/specie/all', {
+  const speciesPromise = await fetch(API_URL + '/specie/all', {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }

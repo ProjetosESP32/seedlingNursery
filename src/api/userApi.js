@@ -1,7 +1,7 @@
-import rootUri from './rootUri';
+import { API_URL } from '../env';
 
 export const login = async (cred) => {
-  const response = await fetch(rootUri + '/authenticate', {
+  const response = await fetch(API_URL + '/authenticate', {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -26,7 +26,7 @@ export const register = async (cred, authority) => {
     return 401;
   }
 
-  const response = await fetch(rootUri + '/user/register/' + authority, {
+  const response = await fetch(API_URL + '/user/register/' + authority, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')

@@ -1,7 +1,7 @@
-import rootUri from './rootUri';
+import { API_URL } from '../env';
 
 export const getAllValves = async () => {
-  const valvesPromise = await fetch(rootUri + '/valve/all', {
+  const valvesPromise = await fetch(API_URL + '/valve/all', {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -15,7 +15,7 @@ export const getAllValves = async () => {
 };
 
 export const getValve = async (id) => {
-  const valvePromise = await fetch(rootUri + '/valve/' + id, {
+  const valvePromise = await fetch(API_URL + '/valve/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -29,7 +29,7 @@ export const getValve = async (id) => {
 };
 
 export const getIrrigationTime = async (id) => {
-  const valvePromise = await fetch(rootUri + '/irrigation-time/valve/' + id, {
+  const valvePromise = await fetch(API_URL + '/irrigation-time/valve/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -43,7 +43,7 @@ export const getIrrigationTime = async (id) => {
 };
 
 export const submitIrrigationTime = async (irrigationTime, valve) => {
-  const response = await fetch(rootUri + '/irrigation-time/valve/' + valve, {
+  const response = await fetch(API_URL + '/irrigation-time/valve/' + valve, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -64,7 +64,7 @@ export const submitIrrigationTime = async (irrigationTime, valve) => {
 };
 
 export const deleteIrrigationTime = async (id) => {
-  const response = await fetch(rootUri + '/irrigation-time/delete/' + id, {
+  const response = await fetch(API_URL + '/irrigation-time/delete/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     },
@@ -77,7 +77,7 @@ export const deleteIrrigationTime = async (id) => {
 };
 
 export const deleteValve = async (id) => {
-  const response = await fetch(rootUri + '/valve/delete/' + id, {
+  const response = await fetch(API_URL + '/valve/delete/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     },
@@ -90,7 +90,7 @@ export const deleteValve = async (id) => {
 };
 
 export const saveValve = async (valve) => {
-  const response = await fetch(rootUri + '/valve', {
+  const response = await fetch(API_URL + '/valve', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -113,7 +113,7 @@ export const saveValve = async (valve) => {
 //************************************* Sensors ************************************/
 
 export const getSensor = async (id) => {
-  const sensorPromise = await fetch(rootUri + '/sensor/' + id, {
+  const sensorPromise = await fetch(API_URL + '/sensor/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -127,7 +127,7 @@ export const getSensor = async (id) => {
 };
 
 export const getAllSensors = async () => {
-  const sensorsPromise = await fetch(rootUri + '/sensor/all', {
+  const sensorsPromise = await fetch(API_URL + '/sensor/all', {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -141,7 +141,7 @@ export const getAllSensors = async () => {
 };
 
 export const saveSensor = async (sensor) => {
-  const response = await fetch(rootUri + '/sensor', {
+  const response = await fetch(API_URL + '/sensor', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -162,7 +162,7 @@ export const saveSensor = async (sensor) => {
 };
 
 export const getRecordsBySensor = async (period, sensorId) => {
-  const response = await fetch(rootUri + '/sensor-record/sensor/' + sensorId, {
+  const response = await fetch(API_URL + '/sensor-record/sensor/' + sensorId, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')

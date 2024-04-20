@@ -1,9 +1,9 @@
-import rootUri from './rootUri';
+import { API_URL } from '../env';
 
 // To populate the rows from PlantsBySpecie component
 export const getPlantsBySpeciePage = async (page, pageSize, specieId, matrix, seedling, seed) => {
   const plantsPromise = await fetch(
-    rootUri +
+    API_URL +
       '/plant/plants-per-specie-page/' +
       (page - 1) +
       '/page-size/' +
@@ -34,7 +34,7 @@ export const getPlantsBySpeciePage = async (page, pageSize, specieId, matrix, se
 
 //gets plant object by id
 export const getPlantById = async (id) => {
-  const plantPromise = await fetch(rootUri + '/plant/' + id, {
+  const plantPromise = await fetch(API_URL + '/plant/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -49,7 +49,7 @@ export const getPlantById = async (id) => {
 
 //gets plant image by id
 export const getPlantImage = async (id) => {
-  const imagePromise = await fetch(rootUri + '/plant-images/' + id, {
+  const imagePromise = await fetch(API_URL + '/plant-images/' + id, {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -73,7 +73,7 @@ export const savePlant = async (obj) => {
 
   obj.submitObj.specie = null;
 
-  return await fetch(rootUri + '/plant/' + matrixSpecie + '/number/' + obj.amount, {
+  return await fetch(API_URL + '/plant/' + matrixSpecie + '/number/' + obj.amount, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -92,7 +92,7 @@ export const savePlant = async (obj) => {
 };
 
 export const getCountByShelf = async () => {
-  const obj = await fetch(rootUri + '/plant/count/byShelf', {
+  const obj = await fetch(API_URL + '/plant/count/byShelf', {
     headers: {
       Authorization: 'Bearer ' + localStorage.getItem('Authorization')
     }
@@ -107,7 +107,7 @@ export const getCountByShelf = async () => {
 
 export const getPlantsByShelf = async (id, index, pageSize) => {
   const response = await fetch(
-    rootUri + '/plant/plants-by-shelf-page/' + index + '/page-size/' + pageSize + '/shelf/' + id,
+    API_URL + '/plant/plants-by-shelf-page/' + index + '/page-size/' + pageSize + '/shelf/' + id,
     {
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('Authorization')
@@ -124,7 +124,7 @@ export const getPlantsByShelf = async (id, index, pageSize) => {
 
 export const getPlantsByMatrix = async (id, index, pageSize) => {
   const response = await fetch(
-    rootUri +
+    API_URL +
       '/plant/plants-by-matrix-page/' +
       (index - 1) +
       '/page-size/' +
@@ -149,7 +149,7 @@ export const getPlantsByMatrix = async (id, index, pageSize) => {
 
 export const getPlantsByAddress = async (address, index, pageSize) => {
   const response = await fetch(
-    rootUri +
+    API_URL +
       '/plant/plants-by-address-page/' +
       (index - 1) +
       '/page-size/' +
