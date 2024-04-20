@@ -1,1 +1,3 @@
-export default 'http://' + location.hostname + ':8080';
+const API_URL = process.env.REACT_APP_API_URL;
+
+export default API_URL;
